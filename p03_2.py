@@ -24,19 +24,20 @@ def eratosthenes( ):
                 x += p
             D[x] = p
 
-#%%
-aa=eratosthenes()
-d=600851475143
-#d=131950
-n=next(aa)
-max_prime = 0
-while n < 131951:
-    if d%n == 0:
-        max_prime = n
-        print('max prime {}'.format(n))
-        n=next(aa)
-    else:
-        print('checking {}'.format(n))
-        n=next(aa)
-    
-print('max prime {}'.format(max_prime)) 
+if __name__ == '__main__':
+        
+    aa=eratosthenes()
+    d=600851475143
+    #d=131950
+    n=next(aa)
+    max_prime = 0
+    while n < 131951:
+        if d%n == 0:
+            max_prime = n
+            print('max prime {}'.format(n))
+            n=next(aa)
+        else:
+            print('checking {}'.format(n))
+            n=next(aa)
+        
+    print('max prime {}'.format(max_prime)) 
