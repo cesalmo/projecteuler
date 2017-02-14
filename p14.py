@@ -39,9 +39,11 @@ def large_sum(n):
 
 
 #%%
+range_start=800000
+range_end=900001
 
 dict_comp = {1:1}
-for a in range(900000,1000001):
+for a in range(range_start,range_end):
     print('iter n{}. time {}'.format(a,time.asctime()))    
 #populate list with numbers and iterations and then we keep updating it.
 #it is our memory to end up iterations when a number is found in this list.
@@ -69,3 +71,7 @@ for a in range(900000,1000001):
         dict01_rev[i] = j+plus
     
     dict_comp.update(dict01_rev)
+    
+dict_final = {a:b for a,b in dict_comp.items() if a <= range_end} #sorted from 100 down
+print('terms ',dict_final.get(sorted(dict_final,key=dict_final.get)[-1]))
+print('number ',sorted(dict_final,key=dict_final.get)[-1])
