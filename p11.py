@@ -33,6 +33,54 @@ m='''08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48'''
 
-#%%
+# get diag.
 o=[a.split(sep=" ") for a in m.split(sep="\n")] #convert string to list
 
+def getdiag(o):
+    '''get grid diagonal. input list of lists.
+    output list of lists
+    '''
+    diag=[]
+    
+    for a in reversed(range(0,len(o)+1)):
+        temp=[]
+        diag.append(temp)
+        for b in range(0,(len(o)-a)):
+            temp.append(o[a][b])
+            a+=1
+    
+    for a in range(0,len(o)+1):
+        c=0
+        temp=[]
+        diag.append(temp)
+        for b in range(a+1,len(o)):
+            temp.append(o[c][b])
+            c+=1
+    while True:
+        try:
+            diag.remove([])
+        except ValueError:
+            break
+    return(diag)
+
+def highest4(lst):
+    '''for a given list of lists, return 4 digit chain with higher numbers
+    and their product
+    '''
+    highest=0 #find the highest 4 digits chain
+    for i in d1:
+        if len(i)>=4:
+            for j in range(0,len(i)-3):
+                if (int(i[j])*int(i[j+1])*int(i[j+2])*int(i[j+3]))>highest:
+                    highest=int(i[j])*int(i[j+1])*int(i[j+2])*int(i[j+3])
+                    chain=[int(i[j]),int(i[j+1]),int(i[j+2]),int(i[j+3])]
+    return(highest,chain)
+
+if __name__=='__main__':
+    p=o
+    p.reverse()
+    d1=getdiag(o) #first diag.
+    d2=getdiag(p) #second diag
+    overt=[list(y) for y in zip(*o)] # hz to vert
+#%% 
+    
