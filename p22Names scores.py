@@ -12,4 +12,19 @@ worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would
 obtain a score of 938 × 53 = 49714.
 What is the total of all the name scores in the file?
 """
+import time
+starttime = time.time()
+#from functools import reduce
+#import list
+with open('p22_names.txt','r') as file:
+    listnames=file.read()
+listnames=listnames.replace(r'"',r'').split(',')
+#create dict with names
+dictnames=dict(enumerate(sorted(listnames),1))
+#create dict with char values
+charvalues={chr(a):a-64 for a in range(65,91)}
 
+print('sumatory={}'.format(sum([a*sum(list((charvalues[c] for c in dictnames[a].strip()))) for a,b
+in dictnames.items()])))
+
+print('time={}'.format(time.time() - starttime))
