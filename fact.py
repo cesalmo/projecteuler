@@ -3,15 +3,11 @@
 Created on Wed Feb 15 17:34:31 2017
 @author: Cesar Alvarez
 """
-
-def fac(n):
-    
-   
-    
-    if n == 1:
+@memoize
+def fac(number):
+    ''' factorial of a non-negative integer
+    '''
+    if number == 1:
         return 1
-    
-    n=n*fac(n-1)
-    
-    return n
-    
+    number = number*fac(number-1)
+    return number
