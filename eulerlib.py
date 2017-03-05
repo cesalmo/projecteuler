@@ -5,6 +5,10 @@ Created on Thu Mar  2 15:15:15 2017
 """
 import functools
 import itertools
+#import time
+#starttime = time.time()
+#print('time={}'.format(time.time() - starttime))
+
 
 #factorial
 @functools.lru_cache(maxsize=None)

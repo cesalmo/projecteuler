@@ -23,6 +23,7 @@ in its decimal fraction part.
 
 for p in range(1,999):
     for n in range(1,p):
-        if 10**n % p == 1:
+        if (10**n % p == 1):
             print(p, n)
             break
+#look for highest p-1 = n. 983
